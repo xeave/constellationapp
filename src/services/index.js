@@ -7,7 +7,7 @@ export default async (store) => {
     field = store.state.field,
     data = await getData(consName, field);
 
-  if (data.data.error_code) {
+  if (data.error_code) {
     store.commit('setErrorCode', data.error_code)
   }
 

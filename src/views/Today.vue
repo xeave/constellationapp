@@ -1,18 +1,25 @@
 <template>
-  <div class="container">Today</div>
+  <div class="container">
+    <cons-card :name="todayData.name" :allIndex="todayData.all"></cons-card>
+  </div>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import getData from "@/services";
 export default {
   name: "TodayPage",
   setup() {
-    const store = useStore();
+    const store = useStore(),
+      state = store.state;
     onMounted(() => {
       getData(store);
     });
+
+    return {
+      todayData: computed(() => state.today),
+    };
   },
 };
 </script>

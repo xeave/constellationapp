@@ -14,23 +14,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 0.88rem;
-  background-color: #db7093;
-  color: #fff;
-  font-size: 0.48rem;
-
-  img {
-    width: 0.56rem;
-    margin-right: 0.05rem;
+ .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: .44rem;
+    background-color: #DB7093;
+    color: #fff;
+    font-size: .18rem;
+    
+    img {
+      width: .23rem;
+      margin-right: .05rem
+    }
   }
-}
 </style>

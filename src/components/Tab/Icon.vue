@@ -25,18 +25,17 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: .5rem;
-      height: .5rem;
+      width: .25rem;
+      height: .25rem;
       border-radius: 50%;
       background-color: #ddd;
       color: #999;
-      font-size: .24rem;
+      font-size: .12rem;
       transition: all .5s;
-      margin-left: 0.1rem;
     }
 
     .text {
-      font-size: .24rem;
+      font-size: .12rem;
       text-align: center;
       margin-top: .02rem;
       color: #999;

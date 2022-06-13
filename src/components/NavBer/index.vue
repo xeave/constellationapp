@@ -25,6 +25,7 @@
 import navData from "@/datas/nav";
 import NavItem from "./Item";
 import { ref } from "vue";
+import { useStore } from "vuex";
 
 import { navCurrent } from "@/directives";
 export default {
@@ -36,13 +37,16 @@ export default {
     navCurrent,
   },
   setup() {
-    const curIdx = ref(0);
+    const curIdx = ref(0),
+      store = useStore();
     const navClick = (e) => {
       const className = e.target.className;
       if (className === "nav-item") {
         const tar = e.target,
-          idx = tar.dataset.index;
+          idx = tar.dataset.index,
+          consName = tar.innerText;
         curIdx.value = idx;
+        store.commit("setConsName", consName);
       }
     };
     return {
@@ -55,27 +59,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-bar {
-  position: fixed;
-  top: 0.88rem;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 0.76rem;
-  border-bottom: 1px solid #ddd;
-  box-sizing: border-box;
-  background-color: #fff;
-  overflow: hidden;
+  .nav-bar {
+    position: fixed;
+    top: .44rem;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: .38rem;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
 
-  .scroll-wrapper {
-    height: 0.92rem;
-    overflow-x: auto;
+    .scroll-wrapper {
+      height: .46rem;
+      overflow-x: auto;
 
-    .nav-wrapper {
-      display: flex;
-      flex-direction: row;
-      height: 0.92rem;
+      .nav-wrapper {
+        display: flex;
+        flex-direction: row;
+        height: .42rem; 
+      }
     }
   }
-}
 </style>

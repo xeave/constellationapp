@@ -1,18 +1,25 @@
 <template>
-  <div class="container">Year</div>
+  <div class="container">
+    <cons-card :name="yearData.name" :allIndex="yearData.all"></cons-card>
+  </div>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import getData from "@/services";
 export default {
   name: "YearPage",
   setup() {
-    const store = useStore();
+    const store = useStore(),
+      state = store.state;
     onMounted(() => {
       getData(store);
     });
+
+    return{
+      yearData: computed(()=>state.year)
+    }
   },
 };
 </script>
