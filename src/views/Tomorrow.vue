@@ -4,6 +4,7 @@
       :name="tomorrowData.name"
       :allIndex="tomorrowData.all"
     ></cons-card>
+    <ConsList :data="tomorrowData" />
   </div>
 </template>
 
@@ -11,8 +12,11 @@
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import getData from "@/services";
+
+import ConsList from "@/components/List/Tomorrow";
 export default {
   name: "TomorrowPage",
+  components: { ConsList },
   setup() {
     const store = useStore(),
       state = store.state;
