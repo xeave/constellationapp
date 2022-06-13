@@ -1,14 +1,20 @@
 <template>
-  <div class="nav-bar">
+  <div
+    class="nav-bar"
+    v-nav-current="{
+      className: 'nav-item',
+      activeClass: 'nav-current',
+      curIdx,
+    }"
+    @click="navClick($event)"
+  >
     <div class="scroll-wrapper">
       <div class="nav-wrapper" :style="`width: ${navData.length * 1.6}rem`">
         <nav-item
           v-for="(item, index) in navData"
           :key="index"
           :item="item"
-          :curIndex="curIndex"
           :index="index"
-          @navClick="navClick"
         ></nav-item>
       </div>
     </div>
@@ -19,19 +25,29 @@
 import navData from "@/datas/nav";
 import NavItem from "./Item";
 import { ref } from "vue";
+
+import { navCurrent } from "@/directives";
 export default {
   name: "NavBer",
   components: {
     NavItem,
   },
+  directives: {
+    navCurrent,
+  },
   setup() {
-    const curIndex = ref(0);
-    const navClick = (index) => {
-      curIndex.value = index;
+    const curIdx = ref(0);
+    const navClick = (e) => {
+      const className = e.target.className;
+      if (className === "nav-item") {
+        const tar = e.target,
+          idx = tar.dataset.index;
+        curIdx.value = idx;
+      }
     };
     return {
       navData,
-      curIndex,
+      curIdx,
       navClick,
     };
   },
