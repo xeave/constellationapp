@@ -28,6 +28,7 @@ export default {
     border-radius: 0.05rem;
     border: 1px solid #ddd;
     overflow: hidden;
+    margin-bottom: 0.1rem;
 
     .header {
       height: 0.35rem;
