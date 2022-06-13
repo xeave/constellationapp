@@ -28,6 +28,8 @@ import { ref } from "vue";
 import { useStore } from "vuex";
 
 import { navCurrent } from "@/directives";
+import getData from "@/services";
+
 export default {
   name: "NavBer",
   components: {
@@ -47,6 +49,7 @@ export default {
           consName = tar.innerText;
         curIdx.value = idx;
         store.commit("setConsName", consName);
+        getData(store);
       }
     };
     return {
@@ -59,27 +62,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .nav-bar {
-    position: fixed;
-    top: .44rem;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: .38rem;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-    background-color: #fff;
-    overflow: hidden;
+.nav-bar {
+  position: fixed;
+  top: 0.44rem;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 0.38rem;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow: hidden;
 
-    .scroll-wrapper {
-      height: .46rem;
-      overflow-x: auto;
+  .scroll-wrapper {
+    height: 0.46rem;
+    overflow-x: auto;
 
-      .nav-wrapper {
-        display: flex;
-        flex-direction: row;
-        height: .42rem; 
-      }
+    .nav-wrapper {
+      display: flex;
+      flex-direction: row;
+      height: 0.42rem;
     }
   }
+}
 </style>

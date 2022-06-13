@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
+import { computed, onActivated, onMounted, ref } from "vue";
 import { useStore } from "vuex";
 import getData from "@/services";
 
@@ -20,9 +20,18 @@ export default {
   components: { ConsList },
   setup() {
     const store = useStore(),
-      state = store.state;
+      state = store.state,
+      status = ref("");
     onMounted(() => {
       getData(store);
+      status.value = state.consName;
+    });
+
+    onActivated(() => {
+      if (status.value !== state.consName) {
+        getData(store);
+        status.value = state.consName;
+      }
     });
 
     return {
