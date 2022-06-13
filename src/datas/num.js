@@ -2,7 +2,7 @@ export default [
   {
     title: '健康指数',
     bgColor: '#FFFACD',
-    field: 'health'
+    field: 'health',
   },
   {
     title: '工作指数',
@@ -15,7 +15,7 @@ export default [
     field: 'love'
   },
   {
-    title: '财运',
+    title: '财运指数',
     bgColor: '#FFF8DC',
     field: 'money'
   }
