@@ -39,7 +39,7 @@ export default {
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 0.44rem;
+  height: 0.66rem;
   border-top: 1px solid #ddd;
   background-color: #fff;
 

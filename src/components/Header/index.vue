@@ -23,13 +23,13 @@ export default {
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 0.44rem;
+  height: 0.66rem;
   background-color: #db7093;
   color: #fff;
-  font-size: 0.18rem;
+  font-size: 0.24rem;
 
   img {
-    width: 0.23rem;
+    width: 0.28rem;
     margin-right: 0.05rem;
   }
 }

@@ -3,8 +3,17 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
+import { useStore } from "vuex";
+import getData from "@/services";
 export default {
-  name: 'WeekPage',
+  name: "WeekPage",
+  setup() {
+    const store = useStore();
+    onMounted(() => {
+      getData(store);
+    });
+  },
 };
 </script>
 
