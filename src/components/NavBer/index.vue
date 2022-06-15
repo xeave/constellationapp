@@ -9,7 +9,7 @@
     @click="navClick($event)"
   >
     <div class="scroll-wrapper">
-      <div class="nav-wrapper" :style="`width: ${navData.length * 1.6}rem`">
+      <div class="nav-wrapper" :style="`width: ${navData.length * 0.8}rem`">
         <nav-item
           v-for="(item, index) in navData"
           :key="index"
